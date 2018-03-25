@@ -1,0 +1,33 @@
+<br><br>
+    	<br><br>
+		<div class="card">
+  <div class="card-body">
+
+
+		<div class="container fixedPos">
+
+<form  #userReg="ngForm" (ngSubmit) = "register(userReg.value)">
+    
+<h3>Registration Form</h3>
+
+Email Id: <input type="email" name="email" size =20 maxlength=20 placeholder="Please enter email id" ngModel/><br><br>
+Password :<input type="password" name="pwd" size =20 maxlength=20 placeholder ="Please enter password" ngModel/><br><br><br>
+Confirm Password :<input type="password" name="confirmPwd" size =20 maxlength=20 placeholder ="Please enter Comfirm password" ngModel/><br><br><br>
+
+First Name : <input type="text" name ="firstName" size =20 maxlength=20 placeholder="Please enter First Name" ngModel/><br><br>
+
+Last Name : <input type="text"  name ="lastName" size =20 maxlength=20 placeholder="Please enter First Name" ngModel/><br>
+Gender : 
+ <input type="radio" name="sex" >M
+<input type="radio" name="sex">F<br>
+DOB : 
+ <input type="text" size =2 /><input type="text" size =2 /><input type="text" size =4 ngModel /><br>
+Mobile no : <input type="text"  name ="mobile" size =20 maxlength=20 placeholder="Please enter First Name" ngModel/><br>
+ <br>
+<button type="submit" class="btn btn-success">Register</button>
+
+</form>
+
+
+    	</div>
+   	</div>   	

@@ -1,0 +1,9 @@
+.card-body{
+    height: 50px;
+    text-align: center;
+}
+.card {
+    width: 350px;
+    color: white;
+    -moz-text-decoration-color: green;
+}

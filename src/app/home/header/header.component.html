@@ -1,0 +1,21 @@
+<nav class="navbar fixed-top navbar-collapse navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Syscho Book House</a>
+    </div>
+   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item"><a  routerLink="/bookHome" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Books</a></li>
+       <li class="nav-item"><a routerLink="/profile" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Profile</a></li>
+       <li class="nav-item"><a routerLink="/cart" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Cart</a></li>
+	     <li class="nav-item"><a routerLink="/about" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">About</a></li>
+       <li class="nav-item"><a routerLink="/contact" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">ContactUs</a></li>
+    
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a routerLink="/register"  class="nav-link"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a routerLink="/" class="nav-link"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+         <li ng-if="status"><a routerLink="/" class="nav-link"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
