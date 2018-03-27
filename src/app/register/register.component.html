@@ -1,5 +1,5 @@
 <br><br>
-    	<br><br>
+    	<br>
 		<div class="card">
   <div class="card-body">
 
@@ -10,7 +10,16 @@
     
 <h3>Registration Form</h3>
 
-Email Id: <input type="email" name="email" size =20 maxlength=20 placeholder="Please enter email id" ngModel/><br><br>
+Email Id: <input type="email" name="email" #emailRef="ngModel" minlength="10" maxlength="15" required size =20 maxlength=20 placeholder="Please enter email id" ngModel/><br><br>
+<div *ngIf ="emailRef.errors && (emailRef.dirty ||emailRef.touched)"  class="alert alert-danger" style="height: 10px;">
+<div [hidden]="!emailRef.errors.required">
+	Please enter Email Id. 
+</div><div [hidden]="!emailRef.errors.minlength">
+	Email Id should be more then 10 character. 
+</div>
+	
+</div>
+
 Password :<input type="password" name="pwd" size =20 maxlength=20 placeholder ="Please enter password" ngModel/><br><br><br>
 Confirm Password :<input type="password" name="confirmPwd" size =20 maxlength=20 placeholder ="Please enter Comfirm password" ngModel/><br><br><br>
 
@@ -22,9 +31,16 @@ Gender :
 <input type="radio" name="sex">F<br>
 DOB : 
  <input type="text" size =2 /><input type="text" size =2 /><input type="text" size =4 ngModel /><br>
-Mobile no : <input type="text"  name ="mobile" size =20 maxlength=20 placeholder="Please enter First Name" ngModel/><br>
+Mobile no : <input type="text" #noRef="ngModel" pattern="^[0-9]{11}"  name ="mobile" size =20 maxlength=20 placeholder="Please enter First Name" ngModel/><br>
+
+<div *ngIf ="noRef.errors && (noRef.dirty ||noRef.touched)"  class="alert alert-danger" >
+<div [hidden]="!noRef.errors.pattern">
+	Please Enter 11 digit numberic value 
+</div>
+</div>
+
  <br>
-<button type="submit" class="btn btn-success">Register</button>
+<button type="submit" class="btn btn-success" [disabled] ="!userReg.valid">Register</button>
 
 </form>
 
