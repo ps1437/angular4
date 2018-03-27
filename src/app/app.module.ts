@@ -29,6 +29,8 @@ import {AppNavRoutingModule} from './app-nav/app-nav-routing.module';
 import{AuthGuard} from './book/service/auth.guard';
 import { ContactUsComponent } from './home/contact-us/contact-us.component';
 
+import {HttpModule} from '@angular/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +57,7 @@ import { ContactUsComponent } from './home/contact-us/contact-us.component';
     MatButtonModule,
     MatMenuModule,
     MatCardModule,
+    HttpModule,
     MatToolbarModule,
     MatIconModule,
     AppNavRoutingModule,
