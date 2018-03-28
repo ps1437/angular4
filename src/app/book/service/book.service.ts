@@ -1,16 +1,57 @@
 import { Injectable } from '@angular/core';
 
-import {Http} from "@angular/http";
 @Injectable()
 export class BookService {
 
-  constructor(private https: Http) { }
+    bookGenres: string[] = [
+        'Comedy',
+        'Drama',
+        'Horror Fiction',
+        'Literary Realism',
+        'Romance',
+        'Satire',
+        'Tragedy',
+        'Tragicomedy',
+        'Fantasy',
+        'Mythology',
+        'Science',
+        'Others'
+    ];
 
- getBookData(){
-   this.https.get('src/app/data/book.json').subscribe(
-    (data) => console.log(data)
+    
+    books = [
+        {
+            title: 'Sita - Warrior of Mithila',
+            author: 'Amish Tripathi',
+            isbn: '1-234-14533-4',
+            publicationDate: '2017-05-29',
+            publisher: 'Mcraw Hills Publications Pvt. Ltd.',
+            price: 320,
+            genre: 'Mythology',
+        }];
 
-   );
- }
+    getAllBookGenres(): string[] {
+        return this.bookGenres;
+    }
 
+    viewAllBooks(): any[] {
+        return this.books;
+    }
+
+
+
+    addBooks(book):boolean{
+        console.log('addBooks... adding book');
+        this.books.push({
+            title: book.title,
+            price: book.price,
+            author:book.author,
+            publicationDate:book.publicationDate,
+            genre: book.genre,
+            publisher:book.publisher,
+            isbn:book.isbn
+        });
+        return true;
+       
+    }
 }

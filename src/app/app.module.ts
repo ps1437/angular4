@@ -1,12 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule } from '@angular/material';
-
-
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AddbookComponent } from './book/addbook/addbook.component';
@@ -28,9 +22,8 @@ import {AppNavRoutingModule} from './app-nav/app-nav-routing.module';
  import {LoginService} from './book/service/login.service';  
 import{AuthGuard} from './book/service/auth.guard';
 import { ContactUsComponent } from './home/contact-us/contact-us.component';
-
-import {HttpModule} from '@angular/http';
-
+import {BookService} from './book/service/book.service';
+import {MaterialModule} from './material.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,17 +46,11 @@ import {HttpModule} from '@angular/http';
   imports: [
     BrowserModule,
     FormsModule,
- BrowserAnimationsModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatCardModule,
-    HttpModule,
-    MatToolbarModule,
-    MatIconModule,
     AppNavRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+     MaterialModule
   ],
-  providers: [LoginService,AuthGuard],
+  providers: [LoginService,AuthGuard,BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

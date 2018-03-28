@@ -10,13 +10,13 @@ import {BookService} from '../book/service/book.service';
 })
 export class LoginComponent implements OnInit {
 title = 'Login Form'; 
-  constructor(private login : LoginService ,private route: Router, private service : BookService) { }
+  constructor(private login : LoginService ,private route: Router) { }
  public status = false;
  public wrongCred = false;
  public userName ="";
   ngOnInit() {
 
-    this.service.getBookData();   
+    
   }
   onLogin(data) {
 
