@@ -38,7 +38,7 @@
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let book of books | sortBy : [sortfield,sortOrder]">
+        <tr *ngFor="let book of books | sortBy : [sortfield,sortOrder] |paginate: { itemsPerPage: 10, currentPage: p }">
           <td> {{book.title}}</td>
           <td> {{book.author}}  </td>
           <td> {{book.isbn}}</td>
@@ -53,5 +53,6 @@
           </tr>
     </tbody>
   </table>
+   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 <Span style="position: absolute" ><i class="material-icons">add_circle</i></Span>

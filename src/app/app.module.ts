@@ -33,6 +33,8 @@ import { LoginModelComponent } from './login/login-model/login-model.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SortByPipe } from '../app/book/pipe/sort-by.pipe'
 
+
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +66,8 @@ import { SortByPipe } from '../app/book/pipe/sort-by.pipe'
     ReactiveFormsModule,
     MaterialModule,
 HttpModule,HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [LoginService, AuthGuard, BookService,StringUtilService],
   bootstrap: [AppComponent],

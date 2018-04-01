@@ -23,7 +23,7 @@ export class ListbookComponent {
   public price: number;
   public genre: string;
   public bookID: string;
-
+   p: number = 1;
    sortOrder : string = 'asc';
   sortfields: Array<String> = [
     'price',
