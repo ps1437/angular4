@@ -1,20 +1,23 @@
-<div class="container" style="background-color:rgba(162, 186, 236, 0.438); color:black; margin-top: 75px;">
+<div class="container imgContainer" style="background-image: url('https://preview.ibb.co/my7dpn/background_images_books_15.jpg'); color:black; margin-top: 45px;">
 	<div class="row">
 		<div class="col-7">
 			<div class="container">
 				<br>
-				<form #bookAdd="ngForm" (ngSubmit)="addBook(bookAdd.value,bookAdd )" class="form" role="form" autocomplete="off" id="bookAdd">
+			
+			<mat-card>
+			<mat-card-title>
+				<h4>Add Book</h4></mat-card-title>
+					<form #bookAdd="ngForm" (ngSubmit)="addBook(bookAdd.value,bookAdd )" class="form" role="form" autocomplete="off" id="bookAdd">
 
 					<div class="row form-group">
 
-					
-
-
+					<label for="title" class="col-sm-3 col-form-label text-right">Title: </label>
+						
 						<div class="col-sm-auto">
-							<mat-form-field>
-    <input matInput placeholder="Title" #titleRef="ngModel" required  name="title"  ngModel>
-  </mat-form-field>
+							<input type="text" class="form-control" required #titleRef="ngModel" id="inputTitle" placeholder="title" name="title"
+								ngModel>
 						</div>
+
 
 						<span *ngIf="titleRef.errors && (titleRef.dirty ||titleRef.touched)">
 							<span [hidden]="!titleRef.errors.required" class="errors">
@@ -116,18 +119,12 @@
 					</div>
 
 
-
-
-
-
-
-
 					<div class="row justify-content-center form-group">
-						<div class="col-5">
+						<div class="col-7">
 
 							
 								<button mat-raised-button color="primary" (click)="bookAdd.reset()">Reset</button>
-								<button mat-raised-button color="red">add Book</button>
+								<button mat-raised-button color="red" [disabled] =titleRef.invalid>add Book</button>
 							
 
 						</div>
@@ -135,6 +132,7 @@
 					</div>
 
 				</form>
+				</mat-card>
 				<br>
 			</div>
 		</div>

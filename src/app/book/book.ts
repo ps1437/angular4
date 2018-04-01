@@ -1,12 +1,12 @@
 export class Book {
-    public title: string;
+      public title: string;
     public author: string;
     public isbn: string;
     public publicationDate: string;
     public publisher: string;
     public price: number;
     public genre: string;
-   
+   public bookID: string;
     constructor(
         ) {
             this.title = '';
@@ -16,5 +16,6 @@ export class Book {
             this.publisher = '';
             this.price = null;
             this.genre = '';
+            this.bookID ='';
         }
 }

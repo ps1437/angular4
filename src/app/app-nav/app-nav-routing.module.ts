@@ -7,13 +7,13 @@ import {AddbookComponent} from '../book/addbook/addbook.component';
 import {UpdateComponent} from '../book/update/update.component';
 
 import {ListbookComponent} from '../book/listbook/listbook.component';
-
+import { Book} from '../book/book';
 
 import {BookHomeComponent} from '../book/book-home/book-home.component';
 
 import {ProfileComponent} from '../home/profile/profile.component';
+import {HomeComponent} from '../book/home/home.component';
 
-import {BookCartComponent} from '../book/book-cart/book-cart.component';
 import {AboutComponent} from '../home/about/about.component';
 import {RegisterComponent} from '../register/register.component';
 import {ContactUsComponent} from '../home/contact-us/contact-us.component';
@@ -24,14 +24,17 @@ const routes :Routes = [
    canActivate :[AuthGuard],
    component: BookHomeComponent },
    { path: 'profile', component: ProfileComponent },
-   { path: 'cart', component: BookCartComponent },
+  
    { path: 'about', component: AboutComponent },
+    { path: 'home', component: HomeComponent },
    {  path: 'register',component: RegisterComponent},
    { path: 'addBook', component: AddbookComponent },
 
    { path: 'update', component: UpdateComponent },
     { path: 'contact', component: ContactUsComponent },
-   { path: 'view', component: ListbookComponent }
+   { path: 'view', component: ListbookComponent },
+    { path: 'updatebook/:book', component: UpdateComponent }
+  
   ]
 @NgModule({
  imports: [RouterModule.forRoot(routes)],

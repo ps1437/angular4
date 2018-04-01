@@ -1,3 +1,140 @@
-<p>
-  update works!
-</p>
+<div class="container" style="background-color:rgba(162, 186, 236, 0.438); color:black; margin-top: 45px;">
+	<div class="row">
+		<div class="col-7">
+			<div class="container">
+				<br>
+			
+			<mat-card>
+			<mat-card-title>
+				<h4>Add Book</h4></mat-card-title>
+					<form #bookAdd="ngForm" (ngSubmit)="updateBook(bookAdd.value,bookAdd )" class="form" role="form" autocomplete="off" id="bookAdd">
+
+					<div class="row form-group">
+
+					<label for="title" class="col-sm-3 col-form-label text-right">Title: </label>
+						
+						<div class="col-sm-auto">
+							<input type="text" class="form-control" required #titleRef="ngModel" id="inputTitle" placeholder="title" name="title"
+								ngModel>
+						</div>
+
+
+						<span *ngIf="titleRef.errors && (titleRef.dirty ||titleRef.touched)">
+							<span [hidden]="!titleRef.errors.required" class="errors">
+									Please enter Book title. 
+							</span>
+						</span>
+					</div>
+
+					<div class="row form-group">
+						<label for="author" class="col-sm-3 col-form-label text-right">Author: </label>
+						<div class="col-sm-auto">
+							<input type="text" class="form-control" required #authorRef="ngModel" id="inputTitle" placeholder="Author Name" name="author"
+								ngModel>
+						</div>
+
+						<span *ngIf="authorRef.errors && (authorRef.dirty ||authorRef.touched)">
+								<span [hidden]="!authorRef.errors.required" class="errors">
+										Please enter Author Name. 
+								</span>
+						</span>
+
+					</div>
+
+
+					<div class="row form-group">
+						<label for="inputISBN" class="col-sm-3 col-form-label text-right">ISBN 10: </label>
+						<div class="col-sm-auto">
+							<input type="text" class="form-control" required #isbRef="ngModel" pattern="[0-9]{1}-[0-9]{3}-[0-9]{5}-[0-9]{1}" id="isbRef"
+								placeholder="X-XXX-XXXXX-X" name="isbn" ngModel>
+
+						</div>
+
+						<span *ngIf="isbRef.errors && (isbRef.dirty ||isbRef.touched)">
+								
+							   <span [hidden]="!isbRef.errors.required" class="errors">
+										Please enter ISBN Number 
+								</span>
+						<span [hidden]="!isbRef.errors.pattern" class="errors">
+										Invalid ISBN format (X-XXX-XXXXX-X)
+								</span>
+
+						</span>
+
+					</div>
+
+
+					<div class="row form-group">
+						<label for="inputPublisher" class="col-sm-3 col-form-label text-right">Publisher: </label>
+						<div class="col-sm-auto">
+							<input type="text" class="form-control" required #publishRef="ngModel" id="publisher" placeholder="Publisher Name" name="publisher"
+								ngModel>
+						</div>
+						<span *ngIf="publishRef.errors && (publishRef.dirty ||publishRef.touched)">
+								<span [hidden]="!publishRef.errors.required" class="errors">
+										Please enter Publisher Name 
+								</span>
+						</span>
+
+					</div>
+
+					<div class="row form-group">
+						<label for="inputPublicationDate" class="col-sm-3 col-form-label text-right">Publication Date: </label>
+						<div class="col-sm-auto">
+							<input type="date" class="form-control" required #publishDate="ngModel" id="inputPublicationDate" name="publicationDate"
+								ngModel>
+						</div>
+
+						<span *ngIf="publishDate.errors && (publishDate.dirty ||publishDate.touched)">
+								<span [hidden]="!publishDate.errors.required" class="errors">
+										Publication date is required
+								</span>
+						</span>
+					</div>
+
+					<div class="row form-group">
+						<label for="inputGenre" class="col-sm-3 col-form-label text-right">Genre: </label>
+						<div class="col-sm-auto">
+							<select class="form-control" id="inputGenre" required #genRef="ngModel" ngModel value="genre" name="genre">
+								<option disabled [selected]="genre==='--Select--'">--Select--</option>
+								<option *ngFor="let genre of bookGenres">
+									{{genre}}
+								</option>
+							</select>
+
+						</div>
+						<span *ngIf="genRef.errors && (genRef.dirty ||genRef.touched)">
+								<span [hidden]="!genRef.errors.required" class="errors">
+										Please select genre
+								</span>
+						</span>
+					</div>
+
+
+					<div class="row form-group">
+						<label for="inputPrice" class="col-sm-3 col-form-label text-right">Price: </label>
+						<div class="col-sm-auto">
+							<input type="number" class="form-control" rquired #priceRef="ngModel" id="inputPrice" name="price" placeholder="₹ 0.00" ngModel>
+						</div>
+					</div>
+
+
+					<div class="row justify-content-center form-group">
+						<div class="col-7">
+
+							
+								<button mat-raised-button color="primary" (click)="bookAdd.reset()">Reset</button>
+								<button mat-raised-button color="red" [disabled] =titleRef.invalid>Update Book</button>
+							
+
+						</div>
+
+					</div>
+
+				</form>
+				</mat-card>
+				<br>
+			</div>
+		</div>
+	</div>
+</div>

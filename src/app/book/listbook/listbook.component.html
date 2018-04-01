@@ -1,6 +1,29 @@
 
-<br>
-<table class="table table-hover " align="center" style="margin-top: 50px; width: 80%;">
+<br><br><br>
+<section layout-align	="right">
+	<div class="row form-group">
+						<label for="inputGenre" class="col-sm-3 col-form-label text-right">Sort By: </label>
+						<div class="col-sm-auto">
+							<select class="form-control" [(ngModel)] ='sortfield'>
+								<option disabled [selected]="genre==='--Select--'">--Select--</option>
+								<option *ngFor="let fields of sortfields" [value]="fields">
+									{{fields}}
+								</option>
+							</select>
+
+						</div>
+ <button  (click)= "sortOrder ='asc'" mat-mini-fab color="teal"  *ngIf ="sortOrder =='desc'">
+<mat-icon>arrow_downward</mat-icon>
+  </button>
+
+ <button   (click)= "sortOrder ='desc'"  mat-mini-fab	 color="teal" *ngIf ="sortOrder == 'asc'">
+<mat-icon>arrow_upward</mat-icon>
+ </button>
+ 	</div>	
+ <section>
+  	
+<table class="table table-hover " align="center" style="margin-top: 20px; width: 80%;">
+  	
     <thead class="thead-dark">
       <tr>
         <th>Title</th>
@@ -15,7 +38,7 @@
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let book of books">
+        <tr *ngFor="let book of books | sortBy : [sortfield,sortOrder]">
           <td> {{book.title}}</td>
           <td> {{book.author}}  </td>
           <td> {{book.isbn}}</td>
@@ -23,13 +46,12 @@
           <td> {{book.publicationDate}}</td>
           <td> {{book.genre}}</td>
           <td> {{book.price | currency:'INR':'symbol'}}</td>
-          <td>  <button type="button" class="btn btn-outline-primary" (click)="updateBook($event, book)">Update
+          <td>  <button type="button" class="btn btn-outline-primary" (click)="updateBook($event, book)"><mat-icon>mode_edit</mat-icon>
             </button></td>
-            <td>  <button type="button" class="btn btn-outline-primary" (click)="delete($event, book)">Delete
+            <td>  <button type="button" class="btn btn-outline-primary" (click)="deleteBook(book.bookID)"><mat-icon>delete_forever</mat-icon>
               </button></td>
           </tr>
     </tbody>
   </table>
 
-
-    
+<Span style="position: absolute" ><i class="material-icons">add_circle</i></Span>

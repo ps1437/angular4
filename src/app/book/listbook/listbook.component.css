@@ -1,0 +1,12 @@
+th{
+    font-size: 14px;
+    font-family: sans-serif;
+}
+.imgContainer{
+ background-image: url('https://preview.ibb.co/nnDqkS/Screenshot_20180329_084938.png');
+background-size: cover;
+}
+.container{
+    width: 100%;
+}
+

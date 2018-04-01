@@ -1,0 +1,26 @@
+.example-card {
+  max-width: 300px;
+  
+}
+
+.example-header-image {
+  background-image: url('https://preview.ibb.co/nnDqkS/Screenshot_20180329_084938.png');
+  background-size: cover;
+}
+div{
+
+    display: inline-block;
+}
+
+
+
+
+.example-header-image2 {
+  background-image: url('https://image.ibb.co/i5ehX7/20151130_124504_1450425825384.jpg');
+  background-size: cover;
+}
+
+img{
+    height: 250px;
+    widows: 250px;
+}
