@@ -525,11 +525,9 @@ var ListbookComponent = /** @class */ (function () {
     ListbookComponent.prototype.ngOnInit = function () {
     };
     ListbookComponent.prototype.updateBook = function (book) {
-        alert(book.bookID);
         if (book.bookID) {
             this.updateBookStatus = true;
         }
-        alert(this.updateBookStatus);
         this.router.navigate(['/updatebook', book.bookID], { relativeTo: this._activeroute });
     };
     ListbookComponent.prototype.deleteBook = function (bookID) {
