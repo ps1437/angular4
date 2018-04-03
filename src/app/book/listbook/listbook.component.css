@@ -9,4 +9,10 @@ background-size: cover;
 .container{
     width: 100%;
 }
+.toast-custom {
+  background-color: red;
+}
+.header-fixed {
+    width: 100% 
+}
 

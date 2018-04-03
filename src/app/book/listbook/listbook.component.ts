@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BookService } from '../service/book.service';
 import { Book } from '../book';
 import { NgModel } from '@angular/forms';
@@ -8,13 +8,17 @@ import { UpdateComponent } from '../update/update.component';
 // import {MatDialog} from '@angular/material';
 import { MyDialogComponent } from '../my-dialog/my-dialog.component';
 import { HttpClientModule } from '@angular/common/http'; import { HttpModule } from '@angular/http';
-import {StringUtilService} from '../service/string-util.service';
+import { StringUtilService } from '../service/string-util.service';
+
+import { ToastrService } from 'ngx-toastr';
+
+
 @Component({
   selector: 'app-listbook',
   templateUrl: './listbook.component.html',
   styleUrls: ['./listbook.component.css']
 })
-export class ListbookComponent {
+export class ListbookComponent implements OnInit {
   public title: string;
   public author: string;
   public isbn: string;
@@ -23,38 +27,73 @@ export class ListbookComponent {
   public price: number;
   public genre: string;
   public bookID: string;
-   p: number = 1;
-   sortOrder : string = 'asc';
+  searchField : string;
+  deleteBookID : boolean;
+
+
+  p: number = 1;
+  sortOrder: string = 'asc';
+  
   sortfields: Array<String> = [
     'price',
     'title',
     'author'
   ]
+  searchList : Array<String> = [
+    'title',
+    'author',
+    'publisher',
+    'genre'
+  ]
+
+
+   
+
+
+  updateBookStatus: boolean = false;
   books: any[];
   bookDelId: Book;
+
   constructor(private bookservice: BookService, private router: Router
-    , private route: ActivatedRoute, public snackBar: MatSnackBar,
-     _utilService : StringUtilService) {
+    , private _activeroute: ActivatedRoute, public snackBar: MatSnackBar,
+    _utilService: StringUtilService,private toastr: ToastrService) {
 
     this.books = this.bookservice.viewAllBooks();
 
 
   }
 
-  updateBook(event: Event, book: Book) {
-    this.router.navigate(['/updatebook', book.bookID], { relativeTo: this.route });
+
+  ngOnInit() {
+ 
+  
   }
 
-  deleteBook(bookID: string) {
-    const bookStatus = this.bookservice.deleteBook(bookID);
-    if (bookStatus) {
-      this.books = this.bookservice.viewAllBooks();
-      alert("Book Deleted Sucessfully...")
-    } else {
-      alert("Book failed   Sucessfully...")
 
+  updateBook(book: Book) {
+    alert(book.bookID);
+    if (book.bookID) {
+      this.updateBookStatus = true;
+    }
+    alert(this.updateBookStatus);
+    this.router.navigate(['/updatebook', book.bookID], { relativeTo: this._activeroute });
+  }
+
+
+
+  deleteBook(bookID:string){
+    const result = this.bookservice.deleteBook(bookID);
+    this.deleteBookID = result;
+    if(result ){
+      this.books = this.bookservice.viewAllBooks();
+      this.toastr.success('', 'Book Deleted Sucessfully');
+
+    }else{
+      this.toastr.success('', 'Failed to delete book..');
+      
     }
   }
+
 
 
   openSnackBar() {

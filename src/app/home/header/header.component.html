@@ -1,22 +1,26 @@
-<nav class="navbar fixed-top navbar-collapse navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Syscho Book House</a>
-    </div>
-   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item"><a  routerLink="/home" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><mat-icon>home</mat-icon></a></li>
-  
-      <li class="nav-item"><a  routerLink="/bookHome" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Books</a></li>
-       <li class="nav-item"><a routerLink="/profile" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Profile</a></li>
-	     <li class="nav-item"><a routerLink="/about" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">About</a></li>
-       <li class="nav-item"><a routerLink="/contact" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">ContactUs</a></li>
-    
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a routerLink="/register"  class="nav-link"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a routerLink="/" class="nav-link"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-         <li ng-if="status"><a routerLink="/" class="nav-link" title="Logout"><i class="material-icons">exit_to_app</i></a></li>
-    </ul>
-  </div>
-</nav>
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/">Syscho Book House</a>
+        <!-- Links -->
+        <div class="collapse navbar-collapse navbar-right" id="nav-content">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a routerLink="/home" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                        <mat-icon>home</mat-icon>
+                    </a>
+                </li>
+                <li class="nav-item"><a routerLink="/bookHome" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"> Books</a></li>
+                <li class="nav-item"><a routerLink="/view" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">View Books</a></li>
+                <li class="nav-item"><a routerLink="/profile" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">About</a></li>
+                <li class="nav-item"><a routerLink="/contact" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Feedback</a></li>
 
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li ng-if="logout"><a routerLink="/" class="nav-link" title="Hi, Welcome to Book Store"><i class="material-icons">exit_to_app</i></a></li>
+            </ul>
+        </div>
+</nav>

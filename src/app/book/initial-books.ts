@@ -1,4 +1,8 @@
-export const  bookLoad = [
+export class Init {
+    load() {
+        if (localStorage.getItem('books') === null || localStorage.getItem('books') === undefined) {
+            console.log('Creating the initial set of books ...');
+            let books = [
                 {
                     bookID: '2:C:1234-1234-1',
                     title: '2 States',
@@ -76,5 +80,10 @@ export const  bookLoad = [
                     genre: 'Science',
                     format: 'Hardcover'
                 }
-            ]
-
+            ];
+            localStorage.setItem('books', JSON.stringify(books));
+        } else {
+            console.log('Loaded the books from local storage ...');
+        }
+    }
+}

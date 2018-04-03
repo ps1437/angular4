@@ -6,8 +6,10 @@
 			
 			<mat-card>
 			<mat-card-title>
+	
 				<h4>Add Book</h4></mat-card-title>
-					<form #bookAdd="ngForm" (ngSubmit)="updateBook(bookAdd.value,bookAdd )" class="form" role="form" autocomplete="off" id="bookAdd">
+					--->>	{{updateBookForm.title}}
+					<form #updateBookForm="ngForm" (ngSubmit)="updateBook(updateBookForm.value,updateBookForm )" class="form" role="form" autocomplete="off" id="bookAdd">
 
 					<div class="row form-group">
 
@@ -15,7 +17,7 @@
 						
 						<div class="col-sm-auto">
 							<input type="text" class="form-control" required #titleRef="ngModel" id="inputTitle" placeholder="title" name="title"
-								ngModel>
+								[(ngModel)]="updateBookForm.title">
 						</div>
 
 

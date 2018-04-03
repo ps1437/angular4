@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../book';
+
 @Injectable()
 export class BookService {
 
@@ -55,7 +56,8 @@ export class BookService {
         return this.bookGenres;
     }
 
-    viewAllBooks(): any[] {
+    viewAllBooks(): Book[] {
+    
         return this.books;
     }
 
@@ -78,24 +80,6 @@ export class BookService {
     }
 
 
-deleteBook(bookID):boolean{
-
-        let delBook = false;
-        console.log('deleteBook=> ' +bookID);
-        try {
-            for (let ibook = 0; ibook < this.books.length; ibook++) {
-                if (this.books[ibook].bookID.match(bookID)) {
-                  this.books.slice(this.books.indexOf(bookID),2);
-                    delBook = true;
-                    break;
-                }
-            }
-        } catch (err) {
-            console.log('error in updatebookdetails of book service');
-        }
-        return delBook;
-
-}
     updateBook(book): boolean {
         let updated = false;
         console.log('Updating book with id => ' + book.bookID);
@@ -136,5 +120,30 @@ deleteBook(bookID):boolean{
             console.log('something went wrong in getBookWithBookID() of book service');
         }
  }
+
+
+
+
+ deleteBook(bookId:string):boolean{
+
+        console.log('Book service method deleteBooksWithBookIDs...');
+        let deleted = true;
+        
+            try {
+                for (const book of this.books) {
+                    if (bookId.match(book.bookID)) {
+                        this.books.splice(this.books.indexOf(book), 1);
+                        break;
+                    }
+                }
+            }
+             catch (err) {
+                console.log('Something went wrong while deleting the books one by one...');
+                deleted = false;
+               
+            }
+            return deleted;
+        }
+
 
 }

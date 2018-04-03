@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 
 import {
-   MatButtonModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatTooltipModule,
-    MatSelectModule,
-    MatSortModule,
-    MatRadioModule,
-    MatSnackBarModule,
-   MatDialogModule
+  MatButtonModule,
+  MatMenuModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatCardModule,
+  MatSidenavModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatTooltipModule,
+  MatSelectModule,
+  MatSortModule,
+  MatRadioModule,
+  MatSnackBarModule,
+  MatDialogModule
 
 } from '@angular/material';
 
@@ -32,8 +32,9 @@ import {
     MatSelectModule,
     MatSortModule,
     MatRadioModule,
-    MatSnackBarModule,MatDialogModule
- 
+    MatSnackBarModule,
+    MatDialogModule
+
   ],
   exports: [
 
@@ -49,8 +50,8 @@ import {
     MatTooltipModule,
     MatSelectModule,
     MatSortModule,
-    MatSnackBarModule,MatDialogModule
-  
+    MatSnackBarModule, MatDialogModule
+
   ]
 })
 export class MaterialModule { }
